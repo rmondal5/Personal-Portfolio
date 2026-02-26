@@ -1013,6 +1013,152 @@ input, textarea { font-family: inherit; }
   margin-top: 2px;
 }
 
+/* ===================== RESUME SECTION ===================== */
+.resume {
+  background: var(--bg-secondary);
+}
+
+.resume-viewer {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.resume-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+
+.resume-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-glow);
+}
+
+.resume-card-shine {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 40%,
+    rgba(108, 92, 231, 0.03) 45%,
+    rgba(168, 85, 247, 0.05) 50%,
+    rgba(108, 92, 231, 0.03) 55%,
+    transparent 60%
+  );
+  animation: resume-shine 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes resume-shine {
+  0%, 100% { transform: translateX(-100%) translateY(-100%) rotate(0deg); }
+  50% { transform: translateX(100%) translateY(100%) rotate(0deg); }
+}
+
+.resume-embed-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 8.5 / 11;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #1a1a2e;
+}
+
+.resume-embed {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: var(--radius-md);
+}
+
+.resume-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  justify-content: center;
+}
+
+.resume-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.4rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  cursor: default;
+}
+
+.highlight-item:hover {
+  border-color: var(--border-hover);
+  transform: translateX(8px);
+  box-shadow: var(--shadow-glow);
+}
+
+.highlight-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: var(--gradient-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.highlight-icon i {
+  font-size: 1.1rem;
+  color: var(--accent-2);
+}
+
+.highlight-item h4 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.highlight-item p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+  .resume-viewer {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .resume-actions {
+    flex-direction: column;
+  }
+
+  .resume-actions .btn {
+    justify-content: center;
+  }
+}
+
 /* ===================== EDUCATION SECTION ===================== */
 .education {
   background: var(--bg-secondary);
